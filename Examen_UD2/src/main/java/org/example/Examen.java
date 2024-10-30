@@ -43,7 +43,7 @@ public class Examen {
             }
 
             if (contador >= 10) {
-                System.out.println("Lo siento, te has quedado sin intentos."); // En caso de quedarnos sin intentos
+                System.out.println("Lo siento, te has quedado sin intentos. El número correcto era: " + numero); // En caso de quedarnos sin intentos
                 break;
             }
         }
@@ -70,7 +70,7 @@ public class Examen {
         if (anyo < 1900 || anyo > anyo_actual) { // Se pide que el año esté dentro del rango aceptado (1900-2024)
             System.out.println("ERROR. El año debe estar en el rango de valores aceptado (1900-Año actual).");
         } else {
-                    for (int i = 0; i < (anyo-1900); i++) { // Abre el for para el rango de valores (1900 hasta el año introducido)
+                    for (int i = 0; i < (anyo_actual-anyo); i++) { // Abre el for para el rango de valores (1900 hasta el año introducido)
                         if (anyo % 4 == 0 || anyo % 100 == 0 && anyo % 400 == 0) { // Aquí comprueba que el número cumpla las condiciones para ser bisiesto
                             contador += 1; // Suma 1 al contador, que será usado más tarde
                         } else {
@@ -78,16 +78,10 @@ public class Examen {
                             break;
                         }
                     }
-            int contadorbisiesto = contador / 4; // Divide el número de veces que ha recorrido el rango entre 4 para conseguir el número de años bisiestos.
+            int contadorbisiesto = (contador / 4) + 1; // Divide el número de veces que ha recorrido el rango entre 4 para conseguir el número de años bisiestos, súmandole uno por el que nos encontramos actualmente.
             if (contadorbisiesto > 0){
-                System.out.println("Ha habido " + contadorbisiesto + " años bisiestos desde el año 1900 hasta el año " + anyo + ".");
+                System.out.println("Ha habido " + contadorbisiesto + " años bisiestos desde el año " + anyo + " hasta el año " + anyo_actual + ".");
             }
         }
-
-
-
-
-
     }
-
 }
